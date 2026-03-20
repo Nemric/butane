@@ -340,6 +340,27 @@ root:
                 - name: contents_local
                   after: contents
                   desc: a local path to the contents of the drop-in, relative to the directory specified by the `--files-dir` command-line argument. Mutually exclusive with `contents`.
+        - name: quadlets
+          after: units
+          desc: a list of Podman Quadlet files.
+          children:
+            - name: name
+              desc: the name of the quadlet file.
+            - name: rootful
+              desc: whether the quadlet runs as root. If true, the file is placed in `/etc/containers/systemd`. If false, it is placed in `/etc/containers/systemd/users`, which applies for all non-root users. Defaults to false.
+            - name: contents
+              desc: the contents of the quadlet file. Mutually exclusive with `contents_local`.
+            - name: contents_local
+              desc: a local path to the contents of the quadlet file, relative to the directory specified by the `--files-dir` command-line argument. Mutually exclusive with `contents`.
+            - name: dropins
+              desc: drop-ins to override settings in the quadlet.
+              children:
+                - name: name
+                  desc: the name of the drop-in file.
+                - name: contents
+                  desc: the contents of the drop-in. Mutually exclusive with `contents_local`.
+                - name: contents_local
+                  desc: a local path to the contents of the drop-in, relative to the directory specified by the `--files-dir` command-line argument. Mutually exclusive with `contents`.
     - name: passwd
       children:
         - name: users
