@@ -16,7 +16,6 @@ nav_order: 9
 
 ### Docs changes
 
-
 ## Butane 0.27.0 (2026-02-27)
 
 ### Features
@@ -31,7 +30,6 @@ nav_order: 9
 ### Docs changes
 
 - Re-vendor latest ignition release; 3.6.0-experimental becomes 3.6.0
-
 
 ## Butane 0.26.0 (2026-01-16)
 
@@ -57,7 +55,6 @@ key](https://getfedora.org/security/).
 
 - Update `boot_device.mirror` examples to specify `boot_device.layout`
 
-
 ## Butane 0.25.1 (2025-09-24)
 
 ### Docs changes
@@ -67,7 +64,6 @@ key](https://getfedora.org/security/).
 ### Misc. changes
 
 - Update vendor'd Ignition dependency to point to latest v2.23.0
-
 
 ## Butane 0.25.0 (2025-09-08)
 
@@ -84,7 +80,6 @@ key](https://getfedora.org/security/).
 ### Docs changes
 
 - Add missing examples in upgrading-openshift _(openshift 4.14)_
-
 
 ## Butane 0.24.0 (2025-05-27)
 
@@ -104,7 +99,6 @@ key](https://getfedora.org/security/).
 ### Misc. changes
 
 - Roll back to Ignition spec 3.5.0 _(openshift 4.19.0)_
-
 
 ## Butane 0.23.0 (2024-12-03)
 
@@ -133,7 +127,6 @@ key](https://getfedora.org/security/).
 
 - Re-vendor latest ignition release; 3.5.0-experimental becomes 3.5.0
 
-
 ## Butane 0.22.0 (2024-09-20)
 
 ### Features
@@ -148,7 +141,6 @@ key](https://getfedora.org/security/).
 
 - Roll back to Ignition spec 3.4.0 _(openshift 4.17.0)_
 
-
 ## Butane 0.21.0 (2024-06-06)
 
 Starting with this release, Butane binaries are signed with the [Fedora 40
@@ -160,7 +152,6 @@ key](https://getfedora.org/security/).
 - Stabilize OpenShift spec 4.16.0, targeting Ignition spec 3.4.0
 - Add OpenShift spec 4.17.0-experimental, targeting Ignition spec
   3.5.0-experimental
-
 
 ## Butane 0.20.0 (2024-02-19)
 
@@ -177,7 +168,6 @@ key](https://getfedora.org/security/).
 ### Misc. changes
 
 - Require Go 1.20+
-
 
 ## Butane 0.19.0 (2023-10-03)
 
@@ -220,7 +210,6 @@ key](https://getfedora.org/security/).
 - Document `key_file` `compression` field  _(openshift 4.8.0 - 4.9.0)_
 - Document support for special mode bits and `arn` URLs _(r4e 1.1.0+)_
 - Improve rendering of spec docs on docs site
-
 
 ## Butane 0.18.0 (2023-03-24)
 
@@ -272,7 +261,6 @@ key](https://getfedora.org/security/).
 - Document SSH key file path used by OpenShift 4.13+ _(openshift)_
 - Document command to generate GRUB password hashes
 
-
 ## Butane 0.17.0 (2023-01-04)
 
 Starting with this release, Butane binaries are signed with the [Fedora 37
@@ -286,7 +274,6 @@ key](https://getfedora.org/security/).
 ### Bug fixes
 
 - Fix version string in release container
-
 
 ## Butane 0.16.0 (2022-10-14)
 
@@ -309,7 +296,6 @@ key](https://getfedora.org/security/).
   _(fcos 1.2.0+, flatcar, rhcos)_
 - Clarify spec docs for `files`/`directories`/`links` `group` fields
 - Document that `user`/`group` fields aren't applied to hard links
-
 
 ## Butane 0.15.0 (2022-06-23)
 
@@ -351,10 +337,9 @@ key](https://getfedora.org/security/).
 - Document support status of setuid/setgid/sticky mode bits in each spec
 - Document support for `gs` URLs _(openshift 4.8.0+)_
 - Document support for `compression` field  _(openshift 4.8.0 - 4.9.0)_
-- Correctly document supported URL schemes _(openshift 4.10.0)_ 
+- Correctly document supported URL schemes _(openshift 4.10.0)_
 - examples: Use containerized `mkpasswd`
 - Convert `NEWS` to Markdown and move to docs site
-
 
 ## Butane 0.14.0 (2022-01-27)
 
@@ -398,7 +383,6 @@ key](https://getfedora.org/security/).
 - Add `with_mount_unit` `swap` support to migration guide _(fcos 1.4.0)_
 - Document build process and contribution flow for release binaries
 
-
 ## Butane 0.13.1 (2021-08-04)
 
 ### Misc. changes
@@ -412,7 +396,6 @@ key](https://getfedora.org/security/).
 ### Docs changes
 
 - Correctly snake-case `ignition.proxy` fields
-
 
 ## Butane 0.13.0 (2021-07-13)
 
@@ -442,7 +425,6 @@ key](https://getfedora.org/security/).
 
 - Document default value for Clevis `threshold`
 
-
 ## Butane 0.12.1 (2021-06-10)
 
 ### Bug fixes
@@ -453,7 +435,6 @@ key](https://getfedora.org/security/).
 ### Misc. changes
 
 - Fail if file compression specified _(openshift 4.8.0, openshift 4.9.0-exp)_
-
 
 ## Butane 0.12.0 (2021-06-08)
 
@@ -473,7 +454,6 @@ key](https://getfedora.org/security/).
 - Fail on `btrfs` filesystem format _(openshift 4.8.0, openshift 4.9.0-exp)_
 - Add comment to MachineConfig output noting that the config is
   machine-generated
-
 
 ## Butane 0.11.0 (2021-04-05)
 
@@ -507,7 +487,6 @@ key](https://getfedora.org/security/).
 - Fix filesystem resize example in upgrade docs
 - Document default for `storage.filesystems.wipe_filesystem`
 
-
 ## FCCT 0.10.0 (2021-02-01)
 
 ### Features
@@ -519,7 +498,6 @@ key](https://getfedora.org/security/).
 
 - Drop erroneous EFI partition in `boot_device.mirror` `ppc64le` layout
 - Fix panic translating `boot_device` when config is invalid
-
 
 ## FCCT 0.9.0 (2021-01-05)
 
@@ -534,7 +512,6 @@ key](https://getfedora.org/security/).
 - Fix nesting of `storage.luks` and `storage.trees` sections
 - Move codebase layout info from README to developer docs
 - Recommend container image or distro package over standalone binary
-
 
 ## FCCT 0.8.0 (2020-12-04)
 
@@ -573,7 +550,6 @@ key](https://getfedora.org/security/).
 - Add LUKS and mirroring examples
 - Add password authentication example
 
-
 ## FCCT 0.7.0 (2020-10-23)
 
 ### Features
@@ -591,7 +567,6 @@ key](https://getfedora.org/security/).
 ### Docs changes
 
 - Switch to GitHub Pages
-
 
 ## FCCT 0.6.0 (2020-05-28)
 
@@ -623,7 +598,6 @@ key](https://getfedora.org/security/).
 - Document support for `sha256` resource verification _(1.1.0)_
 - Clarify semantics of `overwrite` and `mode` fields
 
-
 ## FCCT 0.5.0 (2020-03-23)
 
 ### Breaking changes
@@ -646,7 +620,6 @@ key](https://getfedora.org/security/).
 - Document `files[].append[].inline` property
 - Update docs for switch to Fedora signing keys
 
-
 ## FCCT 0.4.0 (2020-01-24)
 
 ### Features
@@ -657,7 +630,6 @@ key](https://getfedora.org/security/).
 
 - Add `release` tag to container of latest release
 - Vendor dependencies
-
 
 ## FCCT 0.3.0 (2020-01-23)
 
@@ -677,7 +649,6 @@ key](https://getfedora.org/security/).
 - Document syntax of inline file contents
 - Document usage of published container image
 
-
 ## FCCT 0.2.0 (2019-07-24)
 
 ### Features
@@ -694,7 +665,6 @@ key](https://getfedora.org/security/).
 
 - Add tests for the examples in the docs
 - Add travis integration
-
 
 ## FCCT 0.1.0 (2019-07-10)
 
