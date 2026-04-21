@@ -467,6 +467,26 @@ systemd:
             contents_local: example.conf
 ```
 
+## Podman Quadlets
+
+This example defines a simple podman quadlet that runs a container. Butane will place the quadlet file in the appropriate directory and Podman's systemd generator will create the corresponding systemd service.
+
+<!-- butane-config -->
+```yaml
+variant: fcos
+version: 1.8.0-experimental
+systemd:
+  quadlets:
+    - name: sleepy.container
+      rootful: true
+      contents: |
+        [Container]
+        Image=quay.io/fedora/fedora:latest
+        Exec=sleep infinity
+        [Install]
+        WantedBy=multi-user.target
+```
+
 ## GRUB password
 
 This example adds a superuser to GRUB and sets a password. Users without the given username and password will not be able to access GRUB command line, modify kernel command-line arguments, or boot non-default OSTree deployments. Password hashes can be generated with `grub2-mkpasswd-pbkdf2`.
