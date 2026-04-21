@@ -131,6 +131,15 @@ The Fedora IoT configuration is a YAML document conforming to the following spec
       * **name** (string): the name of the drop-in. This must be suffixed with ".conf".
       * **_contents_** (string): the contents of the drop-in. Mutually exclusive with `contents_local`.
       * **_contents_local_** (string): a local path to the contents of the drop-in, relative to the directory specified by the `--files-dir` command-line argument. Mutually exclusive with `contents`.
+  * **_quadlets_** (list of objects): a list of Podman Quadlet files.
+    * **name** (string): the name of the quadlet file.
+    * **rootful** (boolean): whether the quadlet runs as root. If true, the file is placed in `/etc/containers/systemd`. If false, it is placed in `/etc/containers/systemd/users`, which applies for all non-root users. Defaults to false.
+    * **_contents_** (string): the contents of the quadlet file. Mutually exclusive with `contents_local`.
+    * **_contents_local_** (string): a local path to the contents of the quadlet file, relative to the directory specified by the `--files-dir` command-line argument. Mutually exclusive with `contents`.
+    * **_dropins_** (list of objects): drop-ins to override settings in the quadlet.
+      * **name** (string): the name of the drop-in file.
+      * **_contents_** (string): the contents of the drop-in. Mutually exclusive with `contents_local`.
+      * **_contents_local_** (string): a local path to the contents of the drop-in, relative to the directory specified by the `--files-dir` command-line argument. Mutually exclusive with `contents`.
 * **_passwd_** (object): describes the desired additions to the passwd database.
   * **_users_** (list of objects): the list of accounts that shall exist. All users must have a unique `name`.
     * **name** (string): the username for the account.

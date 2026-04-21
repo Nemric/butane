@@ -388,6 +388,107 @@ func TestValidateDropin(t *testing.T) {
 	}
 }
 
+func TestValidateQuadlet(t *testing.T) {
+	tests := []struct {
+		in         Quadlet
+		reportPath string
+	}{
+		{
+			Quadlet{
+				Name:          "working.container",
+				ContentsLocal: util.StrToPtr("hello"),
+			},
+			"",
+		},
+		{
+			Quadlet{
+				Name:     "working.container",
+				Contents: util.StrToPtr("hello"),
+			},
+			"",
+		},
+		{
+			Quadlet{
+				Name:     "bad-extension.foo",
+				Contents: util.StrToPtr("hello"),
+			},
+			"error at $.name: " + common.ErrQuadletBadExtension.Error() + "\n",
+		},
+		{
+			Quadlet{
+				Name:          "testing.container",
+				Contents:      util.StrToPtr("hello"),
+				ContentsLocal: util.StrToPtr("hello"),
+			},
+			"error at $.contents_local: " + common.ErrTooManySystemdSources.Error() + "\n",
+		},
+		// No contents and no contents_local is allowed
+		{
+			Quadlet{
+				Name: "testing.container",
+			},
+			"",
+		},
+		{
+			Quadlet{
+				Name:     "templateBase@.container",
+				Contents: util.StrToPtr("hello"),
+			},
+			"",
+		},
+		// template instance cannot have contents
+		{
+			Quadlet{
+				Name: "templateInstance@1000.container",
+			},
+			"",
+		},
+		{
+			Quadlet{
+				Name:          "templateInstance@1000.container",
+				ContentsLocal: util.StrToPtr("hello"),
+			},
+			"error at $.contents_local: " + common.ErrTemplateInstanceCannotHaveContents.Error() + "\n",
+		},
+		{
+			Quadlet{
+				Name:     "templateInstance@1000.container",
+				Contents: util.StrToPtr("hello"),
+			},
+			"error at $.contents: " + common.ErrTemplateInstanceCannotHaveContents.Error() + "\n",
+		},
+		{
+			Quadlet{
+				Name: "",
+			},
+			"error at $.name: " + common.ErrQuadletBadExtension.Error() + "\n",
+		},
+		{
+			Quadlet{
+				Name: "foo@bar",
+			},
+			"error at $.name: " + common.ErrQuadletBadExtension.Error() + "\n",
+		},
+		{
+			Quadlet{
+				Name:          "template@100.container",
+				Contents:      util.StrToPtr("non-empty"),
+				ContentsLocal: util.StrToPtr("non-empty"),
+			},
+			"error at $.contents: " + common.ErrTemplateInstanceCannotHaveContents.Error() + "\n" +
+				"error at $.contents_local: " + common.ErrTemplateInstanceCannotHaveContents.Error() + "\n",
+		},
+	}
+
+	for i, test := range tests {
+		t.Run(fmt.Sprintf("validate %d", i), func(t *testing.T) {
+			actual := test.in.Validate(path.New("yaml"))
+			baseutil.VerifyReport(t, test.in, actual)
+			assert.Equal(t, test.reportPath, actual.String(), "bad report")
+		})
+	}
+}
+
 // TestUnkownIgnitionVersion tests that butane will raise a warning but will not fail when an ignition config with an unkown version is specified
 func TestUnkownIgnitionVersion(t *testing.T) {
 	test := struct {
