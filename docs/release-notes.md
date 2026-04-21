@@ -10,6 +10,8 @@ nav_order: 9
 
 ### Features
 
+- Add JSON Schemas for CoreOS and Flatcar Butane variants
+
 ### Bug fixes
 
 ### Misc. changes
